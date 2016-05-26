@@ -28,4 +28,4 @@ script:
   - docker-compose run web py.test --cov=.
 
 after_success:
-  - codecov
+  - codecov --root web
