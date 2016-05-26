@@ -20,6 +20,7 @@ before_install:
 
 install:
   - docker-compose run web pip install -r requirements.txt
+  - docker-compose run web pip install --user codecov
 
 script:
   - docker-compose -f docker-compose.yml build
@@ -27,4 +28,4 @@ script:
   - docker-compose run web python manage.py test
 
 after_success:
-  - docker-compose run web bash <(curl -s https://codecov.io/bash)
+  - docker-compose run web codecov
