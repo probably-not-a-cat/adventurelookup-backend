@@ -27,4 +27,4 @@ script:
   - docker-compose run web py.test --cov=.
 
 after_success:
-  - docker-compose run web codecov
+  - bash <(curl -s https://codecov.io/bash)
